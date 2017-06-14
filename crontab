@@ -1,0 +1,4 @@
+#Fish of the Day
+* * * * * /bin/bash /home/fotd/runfish.sh
+0 4 * * * /usr/bin/python /home/fotd/fotd.py
+0,15,30,45 * * * * /usr/bin/python /home/fotd/resetWindow.py
