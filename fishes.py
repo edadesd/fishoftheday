@@ -1,3 +1,15 @@
+'''Format: fish is a list of dicts. Each dict has the following entries:
+'name': The name of the fish as a string
+'url': A link to an information page about the fish, as a string.
+'max': The largest recorded instance of the fish on the information 
+page in ilms (inches) as an integer.
+
+Add a new fish by adding a new dict to the list. They do not need to be alphabetized
+because they are selected when needed via random.choice. Make sure you add a corresponding
+index number to fishesleft.txt'''
+
+
+
 fishes = [
 	{'name': 'Abalathian Smelt', 'url': 'http://ff14angler.com/fish/24', 'max': 5.8},
 	{'name': 'Acorn Snail', 'url': 'http://ff14angler.com/fish/34', 'max': 6.9},
