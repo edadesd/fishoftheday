@@ -111,6 +111,7 @@ for mention in mentions:
         '''Keep track of each user who has sent a mention
         during this execution. Only reply to one mention
         per author in each execution.'''
+        
         if mention.author.id not in repliedUsers:
             repliedUsers.append(mention.author.id)
             
@@ -118,8 +119,10 @@ for mention in mentions:
             to avoid getting an infinite loop of replying to another 
             bot that replies to all messages. The bot's Twitter profile
             tells users who want a reply from the bot to use this word.'''
+            
             if "fish" in mention.text:
-                if windowReplies < REPLY_LIMIT:                        
+                if windowReplies < REPLY_LIMIT: 
+                    
                     '''Format the reply post.'''
                     screenName = "@" + mention.author.screen_name + " "
                     postString = screenName + rollFish()
@@ -127,6 +130,7 @@ for mention in mentions:
                     #Attempt to post the reply.
                     try:
                         api.update_status(postString, mention.id)
+                    
                         #Increment the number of replies in the current window.
                         windowReplies = windowReplies + 1
                         print postString
