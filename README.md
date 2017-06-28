@@ -1,7 +1,7 @@
 # fishoftheday
 (Python 2.7) Posts an item from a list once per day and replies to mentions with an item from the list.
 
-Enter the item information in fishes.py and enter each the index of each item on its own line in fishleft.txt.
+Enter the item information in fishes.py and enter each the index of each item on its own line in fishleft.txt. Depends upon the tweepy library: https://github.com/tweepy/tweepy
 
 You will need to register the bot as a Twitter app to get the necessary values for secret.py. See the included secret.py for the names of the values you will need to include, then copy them from your app page to secret.py as the values for the listed variables so the bot can use them to authenticate. This enables posting the code without giving away your credentials - just remember to never expose your secret.py file!
 
