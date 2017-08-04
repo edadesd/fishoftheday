@@ -26,12 +26,12 @@ fotd = random.choice(validFish)
 fotdIndex = fotd['index']
 
 postString = "Fish of the Day: " + "\n" + fotd['name']+ "\n" + fotd['url']
-print postString
+# print postString
 
-# api.update_status(postString)
+api.update_status(postString)
 
 fishes[fotdIndex]['available'] = "False"
-print fishes[fotdIndex]
+# print fishes[fotdIndex]
 
 with open(fishfile, "w") as fishFile:
         fishFile.write("fishes = [\n")
