@@ -32,7 +32,7 @@ def rollFish():
 
     '''Determine the fishs's length via random roll.'''
         
-    #Timeworn Maps and Sky Pirate Spoils do not have variable lengths.
+    # Timeworn Maps and Sky Pirate Spoils do not have variable lengths.
     if "Timeworn" in fishName or "Spoil" in fishName:
         fishLength = generatedFish['max']
     else:
@@ -46,8 +46,8 @@ def rollFish():
             fishLength = round((float(roll)/100.0) * generatedFish['max'], 1)
             fullCatch += " (HQ)"
             
-        '''There is an 85% chance of the fish not being High Quality. fish that are not
-        HQ, give it a random length that is 50-84% of the listed maximum length in fishes.py.'''
+        '''There is an 85% chance of the fish not being High Quality. Normal Quality fish will 
+        have a length that is 50-84% of the listed maximum length in fishes.py.'''
         
         else:
             sizeMod = float(random.randint(50, 84))
@@ -127,11 +127,11 @@ for mention in mentions:
                     screenName = "@" + mention.author.screen_name + " "
                     postString = screenName + rollFish()
                     
-                    #Attempt to post the reply.
+                    # Attempt to post the reply.
                     try:
                         api.update_status(postString, mention.id)
                     
-                        #Increment the number of replies in the current window.
+                        # Increment the number of replies in the current window.
                         windowReplies = windowReplies + 1
                         print postString
                     except:
