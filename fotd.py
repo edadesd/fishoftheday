@@ -38,7 +38,7 @@ api.update_status(postString)
 fishes[fotdIndex]['available'] = False
 # print fishes[fotdIndex]
 
-# Write each of the fish into the file by dumping its dict as a JSON-formatted
+# Write each of the fish into the file by dumping its dict as a
 # string.
 
 with open(fishfile, "w") as fishFile:
