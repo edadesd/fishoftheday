@@ -38,7 +38,7 @@ with open(fishfile, "w") as fishFile:
         index = 0
         for fish in fishes:
                 fishString = json.dumps(fish)
-                if index < len(fishes) - 1:
+                if index < len(fishes):
                         fishString += ",\n"
                 else:
                         fishString += "\n"
