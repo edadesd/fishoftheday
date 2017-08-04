@@ -2,9 +2,13 @@
 
 import tweepy
 import random
+import json
 import os
 from secret import CONSUMER_TOKEN, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 from fishes import fishes
+
+
+fishfile = "/home/pi/everyFish/fishes.py"
 
 random.seed()
 
@@ -18,15 +22,25 @@ for fish in fishes:
         if fish['available'] == "True":
                 validFish.append(fish)
 
-fotd = validfish.choice()
-
+fotd = random.choice(validFish)
+fotdIndex = fotd['index']
 
 postString = "Fish of the Day: " + "\n" + fotd['name']+ "\n" + fotd['url']
 print postString
 
-api.update_status(postString)
+# api.update_status(postString)
 
-with open(filename, "w") as fishleft:
-	for i in remainingIndices:
-		if i != chosen:
-	        	fishleft.write(i)
+fishes[fotdIndex]['available'] = "False"
+print fishes[fotdIndex]
+
+with open(fishfile, "w") as fishFile:
+        fishFile.write("fishes = [\n")
+        index = 0
+        for fish in fishes:
+                fishString = json.dumps(fish)
+                if index < len(fishes) - 1:
+                        fishString += ",\n"
+                else:
+                        fishString += "\n"
+                fishFile.write(fishString)
+        fishFile.write("]")
