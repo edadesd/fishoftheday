@@ -5,7 +5,9 @@ import random
 from secret import CONSUMER_TOKEN, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 from fishes import fishes
 
-fishfile = "/home/pi/everyFish/fishes.py"
+# Replace this value with the filepath of the
+# data file you've stored all the items to post.
+fishfile = ""
 
 random.seed()
 
