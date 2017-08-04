@@ -3,7 +3,6 @@
 import tweepy
 import random
 import json
-import os
 from secret import CONSUMER_TOKEN, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 from fishes import fishes
 
