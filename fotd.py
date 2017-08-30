@@ -5,9 +5,7 @@ import random
 from secret import CONSUMER_TOKEN, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 from fishes import fishes
 
-# Replace this value with the filepath of the
-# data file you've stored all the items to post.
-fishfile = ""
+fishfile = "/home/pi/everyFish/fishes.py"
 
 random.seed()
 
@@ -20,17 +18,14 @@ api = tweepy.API(auth)
 # by iterating through the list of fish and extracting
 # the ones that have not been already.
 
-validFish = []
-for fish in fishes:
-        if fish['available'] == True:
-                validFish.append(fish)
-        
+validFish = [fish for fish in fishes if fish['available']]
+
 # Choose a fish from the available fish and post its contents.
 
 fotd = random.choice(validFish)
 fotdIndex = fotd['index']
 
-postString = "Fish of the Day: " + "\n" + fotd['name']+ "\n" + fotd['url']
+postString = "Fish of the Day: " + "\n" + fotd['name'] 
 # print postString
 
 api.update_status(postString)
@@ -40,8 +35,7 @@ api.update_status(postString)
 fishes[fotdIndex]['available'] = False
 # print fishes[fotdIndex]
 
-# Write each of the fish into the file by dumping its dict as a
-# string.
+# Write each of the fish into the file by dumping its dict as a string.
 
 with open(fishfile, "w") as fishFile:
         fishFile.write("fishes = [\n")
